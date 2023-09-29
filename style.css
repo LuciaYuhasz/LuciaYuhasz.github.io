@@ -83,10 +83,11 @@ h1 {
 
 }
 
-.cetral {
+.central {
     width: 50%;
     margin: auto;
     background-color: transparent;
+    background-size: cover;
 }
 
 
