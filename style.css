@@ -134,11 +134,36 @@ h1 {
 }
 
 .contenedor {
+    font-family: 'Roboto Condensed', sans-serif;
     text-align: center;
 }
 
 h1 {
-    font-size: 48px;
-    color: #333;
+    font-size: 65px;
+    color: white;
     margin-bottom: 20px;
+}
+
+h2,
+h3 {
+    font-family: 'Lato', sans-serif;
+    color: rgb(202, 184, 156);
+}
+
+h3 {
+    font-style: italic
+}
+
+.imgdon {
+    position: relative;
+    width: 500px;
+    /* Ajusta el ancho del contenedor según tus necesidades */
+    height: 300px;
+    /* Ajusta la altura del contenedor según tus necesidades */
+}
+
+.imgdon img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
