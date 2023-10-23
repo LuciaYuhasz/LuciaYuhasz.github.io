@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto</title>
+    <link rel="stylesheet" href="estilocom.css">
+</head>
+
+<body>
+
+    <section class="form-register">
+
+        <h1>REGISTRATE Y SUMATE A ESTA GRAN FAMILIA!!! </h1>
+        <form onsubmit="return saludar()" id="registroForm">
+            <input class="controles" type="text" name="nombres" id="nombres" placeholder="Ingrese su nombre">
+            <div id="nombresError" class="error"></div>
+
+            <input class="controles" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su apellido">
+            <div id="apellidosError" class="error"></div>
+
+            <input class="controles" type="text" name="correo" id="correo" placeholder="Ingrese su correo electrónico">
+            <div id="correoError" class="error"></div>
+
+            <input class="controles" type="password" name="contrasenia" id="contrasenia"
+                placeholder="Ingrese su contraseña">
+            <div id="contraseniaError" class="error"></div>
+
+            <p>Estoy de acuerdo con <a href="#">terminos y condiciones </a></p>
+            <input class="boton" type="submit" value="Registrar">
+            <p><a href="#">¿Ya tienes cuenta?</a></p>
+            <p> <a href="index.html">Volver a la pagina principal</a></p>
+        </form>
+    </section>
+
+    <script>
+        document.getElementById('registroForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Obtener los valores de los campos
+            var nombres = document.getElementById('nombres').value.trim();
+            var apellidos = document.getElementById('apellidos').value.trim();
+            var correo = document.getElementById('correo').value.trim();
+            var contrasenia = document.getElementById('contrasenia').value.trim();
+
+            // Validaciones
+            var nombresError = document.getElementById('nombresError');
+            var apellidosError = document.getElementById('apellidosError');
+            var correoError = document.getElementById('correoError');
+            var contraseniaError = document.getElementById('contraseniaError');
+
+            nombresError.innerHTML = apellidosError.innerHTML = correoError.innerHTML = contraseniaError.innerHTML = '';
+
+            if (nombres === '') {
+                nombresError.innerHTML = 'El campo de nombres es obligatorio.';
+            }
+
+            if (apellidos === '') {
+                apellidosError.innerHTML = 'El campo de apellidos es obligatorio.';
+            }
+
+            if (correo === '') {
+                correoError.innerHTML = 'El campo de correo es obligatorio.';
+            } else {
+                var correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!correoRegex.test(correo)) {
+                    correoError.innerHTML = 'El correo electrónico no es válido.';
+                }
+            }
+
+            if (contrasenia === '') {
+                contraseniaError.innerHTML = 'El campo de contraseña es obligatorio.';
+            } else if (contrasenia.length < 8) {
+                contraseniaError.innerHTML = 'La contraseña debe tener al menos 8 caracteres.';
+            }
+
+            // Si no hay errores, mostrar los datos
+            if (nombresError.innerHTML === '' && apellidosError.innerHTML === '' && correoError.innerHTML === '' && contraseniaError.innerHTML === '') {
+                var datosMostrados = document.createElement('div');
+                datosMostrados.innerHTML = `
+                <h2>Datos Enviados</h2>
+                <p>Nombres: ${nombres}</p>
+                <p>Apellidos: ${apellidos}</p>
+                <p>Correo: ${correo}</p>
+                <p>Contraseña: ${contrasenia}</p>
+            `;
+                document.body.appendChild(datosMostrados);
+            }
+        });
+    </script>

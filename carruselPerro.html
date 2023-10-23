@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel de Imágenes</title>
+    <link rel="stylesheet" href="carrusel.css">
+
+</head>
+
+<body>
+    <div class="header">
+
+        <ul>
+            <li><a href="index.html">Volver Al inicio</a></li>
+            <li>Perritos en adopcion</li>
+            <li><a href="carruselGato.html">Gatitos en adopcion</a></li>
+        </ul>
+    </div>
+
+
+
+    <div class="carousel-container">
+        <img class="carousel-image" src="img/perrito1.jpg" alt="Imagen 1">
+        <img class="carousel-image" src="img/perritos2.jpg" alt="Imagen 2">
+        <img class="carousel-image" src="img/refugio-de-animales.jpg" alt="Imagen 3">
+        <img class="carousel-image" src="img/perrito3.jpg" alt="Imagen 4">
+        <button id="anterior">Anterior</button>
+        <button id="siguiente">Siguiente</button>
+    </div>
+
+    <script>
+        const imagenes = document.querySelectorAll('.carousel-image');
+        let indiceActual = 0;
+
+        function mostrarImagen(indice) {
+            imagenes.forEach((imagen) => imagen.style.display = 'none');
+            imagenes[indice].style.display = 'block';
+        }
+
+        function avanzar() {
+            indiceActual = (indiceActual + 1) % imagenes.length;
+            mostrarImagen(indiceActual);
+        }
+
+        function retroceder() {
+            indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length;
+            mostrarImagen(indiceActual);
+        }
+
+        document.getElementById('siguiente').addEventListener('click', avanzar);
+        document.getElementById('anterior').addEventListener('click', retroceder);
+
+        // Mostrar la primera imagen al cargar
+        mostrarImagen(indiceActual);
+    </script>
+
+</body>
+
+</html>

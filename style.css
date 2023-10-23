@@ -83,12 +83,7 @@ h1 {
 
 }
 
-.central {
-    width: 50%;
-    margin: auto;
-    background-color: transparent;
-    background-size: cover;
-}
+
 
 
 .slider {
@@ -148,6 +143,23 @@ h2,
 h3 {
     font-family: 'Lato', sans-serif;
     color: rgb(202, 184, 156);
+
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-size: larger;
+    color: #EFF2F5;
+    background-color: rgba(0, 0, 0, 0.562);
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 25px;
+    min-width: 20%;
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
 }
 
 h3 {
@@ -166,4 +178,22 @@ h3 {
     position: absolute;
     bottom: 0;
     right: 0;
+}
+
+.carousel-container {
+    width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+
+
+}
+
+.carousel-image {
+    max-width: 100%;
+    height: auto;
+    display: none;
+}
+
+button {
+    margin: 10px;
 }
