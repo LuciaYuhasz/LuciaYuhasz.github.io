@@ -144,7 +144,10 @@ h3 {
     font-family: 'Lato', sans-serif;
     color: rgb(202, 184, 156);
 
-
+    background-color: rgba(0, 0, 0, 0.562);
+    padding-left: 15px;
+    border-radius: 25px;
+    min-width: 20%;
 }
 
 h3 {
